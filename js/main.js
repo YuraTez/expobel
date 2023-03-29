@@ -136,7 +136,7 @@ $('.nav-list__item--submenu > span').on('click', function (event) {
 });
 
 
-$('input, select').styler();
+$('select').styler();
 
 
 $('.switch-grid').on('click', function () {
@@ -186,3 +186,94 @@ $('.news-promotions-slider').slick({
         }
     ]
 });
+
+Fancybox.bind("[data-fancybox]", {});
+
+$('#gallery-slider').slick({
+    dots: true,
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    appendDots: ".gallery-dots",
+    appendArrows: '.gallery-navigation',
+    prevArrow: '.gallery-prevArrow',
+    nextArrow: '.gallery-nextArrow',
+    responsive: [
+        {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 500,
+            settings: {
+                slidesToScroll: 1,
+                slidesToShow: 1
+            }
+        }
+    ]
+});
+
+
+const heightGallerySlider = 276 / 276;
+const heightLogoCard = 432 / 243;
+const heightBannerCard = 840 / 525;
+
+
+function resizeImg(item , heightImg){
+    $(item).height($(item).width() / heightImg);
+}
+
+resizeImg(".gallery-slider__item", heightGallerySlider);
+resizeImg(".shop-card-logo__img", heightLogoCard);
+resizeImg(".shop-card-sticky-elem", heightBannerCard);
+
+
+window.onresize = ()=>{
+    resizeImg(".gallery-slider__item", heightGallerySlider);
+    resizeImg(".shop-card-logo__img", heightLogoCard);
+    resizeImg(".shop-card-sticky-elem", heightBannerCard);
+}
+
+let x = 1, point;
+
+function zoomPlus(){
+    x+=0.1;
+    point="scale("+x+","+x+")";
+    $('.map-content__img').css("transform",point);
+    if(x<1.2){setTimeout(zoomPlus,1)};
+    return x
+}
+
+function zoomMinus(){
+    x-=0.1;
+    point="scale("+x+","+x+")";
+    $('.map-content__img').css("transform",point);
+    if(x>2){setTimeout(zoomMinus,10)};
+    return x
+}
+
+$(".map-buttons__plus").on("click",()=>{
+    zoomPlus()
+})
+
+$(".map-buttons__minus").on("click",()=>{
+    zoomMinus()
+})
+
+$(".banner-subscribe__btn").on("click",()=>{
+    $(".popUp-subscribe").addClass("active");
+    $(".substrate").addClass("active")
+})
+
+$(".modal-cross").on("click",()=>{
+    $(".popUp").removeClass("active");
+    $(".substrate").removeClass("active")
+})
+
+$(".substrate").on("click",()=>{
+    $(".popUp").removeClass("active");
+    $(".substrate").removeClass("active")
+})
