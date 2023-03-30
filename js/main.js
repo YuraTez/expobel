@@ -243,7 +243,7 @@ function zoomPlus(){
     x+=0.1;
     point="scale("+x+","+x+")";
     $('.map-content__img').css("transform",point);
-    if(x<1.2){setTimeout(zoomPlus,1)};
+   /* if(x<1){setTimeout(zoomPlus,1)};*/
     return x
 }
 
@@ -276,4 +276,19 @@ $(".modal-cross").on("click",()=>{
 $(".substrate").on("click",()=>{
     $(".popUp").removeClass("active");
     $(".substrate").removeClass("active")
+})
+
+$(".map-btn-floor__item--1").on("click",()=>{
+    $(".map-btn-floor__item--2").removeClass("active");
+    $(".map-content__img--floor-2").removeClass("active")
+    $(".map-btn-floor__item--1").addClass("active");
+    $(".map-content__img--floor-1").addClass("active");
+})
+
+$(".map-btn-floor__item--2").on("click",()=>{
+    $(".map-btn-floor__item--1").removeClass("active");
+    $(".map-content__img--floor-1").removeClass("active");
+    $(".map-btn-floor__item--2").addClass("active");
+    $(".map-content__img--floor-2").addClass("active")
+   /* $('.map-content__img').css("transform","scale(1, 1)");*/
 })

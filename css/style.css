@@ -3126,7 +3126,7 @@ body{
 
 .map-buttons__minus{
   width: 59px;
-  height: 43px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3138,7 +3138,7 @@ body{
 
 .map-buttons__plus{
   width: 59px;
-  height: 43px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3824,6 +3824,57 @@ input[type="checkbox"] {
 
   .entertainment-item-content__map span{
     display: none;
+  }
+}
+
+.map-content__img--floor-1,
+.map-content__img--floor-2{
+  display: none;
+}
+
+.map-content__img--floor-1.active,
+.map-content__img--floor-2.active{
+  display: block;
+}
+
+.map-buttons-container{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.map-btn-floor{
+  display: flex;
+  margin: 30px 0 20px;
+}
+
+.map-btn-floor__item{
+  padding: 12px 24px;
+  color: #8B8B8B;
+  border: 1px solid #D1D3D4;
+  background: #F8F8F8;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.map-btn-floor__item.active{
+  background: #FFDD00;
+  color: #333333;
+}
+
+.map-btn-floor__item--1{
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+}
+
+.map-btn-floor__item--2{
+  border-radius: 0 10px 10px 0;
+}
+
+@media(max-width: 400px){
+  .map-btn-floor__item{
+    padding: 12px 14px;
+    font-size: 13px;
   }
 }
 
