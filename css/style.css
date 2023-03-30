@@ -1901,6 +1901,7 @@ body{
 
   .mobile-menu.active {
     display: block;
+    height: 100%;
     left: 0;
     opacity: 1;
   }
@@ -3605,6 +3606,227 @@ input[type="checkbox"] {
     line-height: 16px;
   }
 }
+
+.entertainment-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 40px 0 65px;
+}
+
+.entertainment-grid__el{
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 4px);
+  height: 460px;
+  gap: 8px;
+}
+
+.entertainment-grid__item{
+  position: relative;
+  width: 100%;
+  height: calc(50% - 4px);
+  border-radius: 20px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.entertainment-grid__el--big .entertainment-grid__item{
+  height: 100%;
+}
+
+.entertainment-grid__item img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.entertainment-grid__item:before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+.entertainment-grid__item:hover:before{
+  background: transparent;
+}
+
+.entertainment-grid__item:hover img{
+  transform: scale(1.2);
+}
+
+.label-card{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 21px;
+  right: 20px;
+  z-index: 2;
+  transform: rotate(-90deg);
+}
+
+.label-card__floor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 73px;
+  height: 29px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  background: #FFDD00;
+  border-radius: 0 2px 2px 0;
+}
+
+.label-card__sale{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 73px;
+  height: 29px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  background: #FF2020;
+  border-radius: 0 2px 2px 0;
+  color: #FFFFFF;
+}
+
+.entertainment-item-content{
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  bottom: 30px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 22px 0 40px;
+}
+
+.entertainment-item-content__place{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.entertainment-item-content__place__text{
+  max-width: 172px;
+  font-family: 'songer',sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #fff;
+}
+
+.entertainment-item-content__place__icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  transition: 0.3s;
+  background: #fff;
+}
+
+.entertainment-item-content__place__icon:hover{
+  background: #FFDD00;
+}
+
+.entertainment-item-content__map{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.21);
+  backdrop-filter: blur(18px);
+  border-radius: 30px;
+  padding: 11px 23px;
+  transition: 0.3s;
+}
+
+.entertainment-item-content__map:hover{
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.entertainment-item-content__map span{
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.entertainment-grid__item__title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 47px;
+  font-family: 'songer',sans-serif;
+  white-space: nowrap;
+  color: #FFFFFF;
+  z-index: 2;
+}
+
+@media (max-width: 855px) {
+  .entertainment-grid{
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+
+  .entertainment-grid__el{
+    width: 100%;
+    height: auto;
+  }
+
+  .entertainment-grid__el.entertainment-grid__el--big{
+    width: 100%;
+    height: 229px;
+  }
+
+  .entertainment-grid__item{
+    width: 100%;
+    height: 229px;
+  }
+
+  .entertainment-grid__item__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+  }
+
+  .entertainment-item-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    bottom: 20px;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 20px 22px 0 20px;
+  }
+
+  .entertainment-item-content__map span{
+    display: none;
+  }
+}
+
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'songer',sans-serif;
 */
