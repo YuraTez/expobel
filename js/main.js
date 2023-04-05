@@ -220,7 +220,7 @@ $('#gallery-slider').slick({
 const heightGallerySlider = 276 / 276;
 const heightLogoCard = 432 / 243;
 const heightBannerCard = 840 / 525;
-
+const heightImgBanner = 1255/461
 
 function resizeImg(item , heightImg){
     $(item).height($(item).width() / heightImg);
@@ -229,12 +229,13 @@ function resizeImg(item , heightImg){
 resizeImg(".gallery-slider__item", heightGallerySlider);
 resizeImg(".shop-card-logo__img", heightLogoCard);
 resizeImg(".shop-card-sticky-elem", heightBannerCard);
-
+resizeImg(".company-content-img", heightImgBanner);
 
 window.onresize = ()=>{
     resizeImg(".gallery-slider__item", heightGallerySlider);
     resizeImg(".shop-card-logo__img", heightLogoCard);
     resizeImg(".shop-card-sticky-elem", heightBannerCard);
+    resizeImg(".company-content-img", heightImgBanner);
 }
 
 let x = 1, point;
@@ -292,3 +293,51 @@ $(".map-btn-floor__item--2").on("click",()=>{
     $(".map-content__img--floor-2").addClass("active")
    /* $('.map-content__img').css("transform","scale(1, 1)");*/
 })
+
+
+
+const questionsList = document.querySelectorAll(".questions-item-header");
+
+if(questionsList !== null){
+    questionsList.forEach((el)=>{
+        el.addEventListener("click",function (){
+            el.classList.toggle("active");
+            $(this).siblings().slideToggle( "slow" );
+        })
+    })
+}
+
+$('#big-slider').slick({
+    dots: true,
+    infinite: true,
+   /* autoplay:true,*/
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendDots: ".big-dots",
+    appendArrows: '.big-navigation',
+    prevArrow: '.big-prevArrow',
+    nextArrow: '.big-nextArrow'
+});
+
+$('#big-slider').on('afterChange', function(event, slick, currentSlide){
+    $('.big-slider-description__item').removeClass("active")
+    let listActiveSlide = this.querySelectorAll('.big-slider-description__item[data-slide="'+currentSlide+'"]');
+    listActiveSlide.forEach((el)=>{
+        el.classList.add("active")
+    })
+
+});
+
+$('.big-slider-description__item').on('click', function(){
+    let slideNumber = this.getAttribute("data-slide");
+    $('#big-slider').slick('slickGoTo', slideNumber,  false);
+});
+
+if($('.big-slider-description__item').length > 0){
+    const positionDotsSliderBig = $(".slick-active .big-slider-text").offset().left - $("#big-slider").offset().left;
+    $(".big-navigation").css("left", positionDotsSliderBig);
+}
+
+if($(".company-content").length > 0){
+    $(".company-content").css("min-height", $(".company-content-img").height() + "px")
+}
