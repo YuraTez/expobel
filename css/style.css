@@ -19,6 +19,7 @@ font-family: 'songer',sans-serif;
   border: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
 }
 
 *::selection {
@@ -3913,6 +3914,7 @@ input[type="checkbox"] {
 
 .page-content--text {
   margin-bottom: 65px;
+  overflow: hidden;
 }
 
 .title_h3 {
@@ -4613,6 +4615,407 @@ ul .news-list__item:before {
 
   .objects-territory-elem__img{
     flex-shrink: 0;
+  }
+}
+
+.flag-list{
+  display: flex;
+  border-bottom: 1px solid #E1E1E1;
+  min-width: 1200px;
+}
+
+.flag-list-wrapper{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.flag-list-wrapper::-webkit-scrollbar {
+  height: 2px;
+}
+
+/* Track */
+.flag-list-wrapper::-webkit-scrollbar-track {
+  background: #E1E1E1;
+  border-top: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+/* Handle */
+.flag-list-wrapper::-webkit-scrollbar-thumb {
+  background: #FFDD00;
+  border: 1px solid #b5b5b514;
+  border-radius: 6px;
+}
+
+.flag-list__item a{
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #333333;
+  padding: 17px 37px;
+}
+
+.flag-list__item a:after{
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.flag-list__item a:hover:after{
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #FFDD00;
+}
+
+.rest-places{
+  display: flex;
+  gap: 48px;
+  padding: 60px 0;
+}
+
+.rest-places__item--text{
+  width: 45%;
+}
+
+.rest-places__item--img{
+  width: 55%;
+  height: 398px;
+}
+
+.rest-places__item--img img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parking-banner{
+  min-height: 460px;
+}
+
+.title-block{
+  font-family: 'songer',sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.title-block span{
+  font-family: 'songer',sans-serif;
+}
+
+.parking-title .title-block{
+  max-width: 372px;
+  color: white;
+  margin-bottom: 33px;
+}
+
+.yellow{
+  color: yellow;
+}
+
+.parking-info{
+  display: flex;
+  gap: 44px;
+}
+
+.parking-banner{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 80px 78px;
+}
+
+.parking-info__item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #FFDD00;
+  border: 1px solid #FFDD00;
+}
+
+.parking-info__item__title{
+  font-family: 'songer',sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.parking-info__item__subtitle{
+  font-family: 'songer',sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #333333;
+}
+
+.wifi,
+.atms,
+.bathroom,
+.mother-room,
+.hide-text,
+.car-wash{
+  margin: 60px 0;
+}
+
+.car-wash{
+ margin: 0;
+}
+
+.wifi-link{
+  margin-top: 30px;
+}
+
+.atms-photo{
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 37px;
+}
+
+.atms-photo__item{
+  width: 287px;
+  height: 142px;
+  box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.03);
+}
+
+.atms-photo__item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hide-btn{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #333333;
+  background: transparent;
+  transition: .3s;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.hide-btn:hover{
+  color: #717171;
+}
+
+.hide-map .map{
+  display: none;
+  margin: 0;
+}
+
+.hide-text-content{
+  height: auto;
+  max-height: 103px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.hide-text.active .hide-text-content{
+  max-height: initial;
+}
+
+.car-wash{
+  display: flex;
+  gap: 52px;
+}
+
+.car-wash .btn{
+  margin-top: 30px;
+}
+
+.car-wash-time{
+  position: relative;
+  padding: 32px 0 0 108px;
+}
+
+.car-wash-time:before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50vw;
+  background: #fff;
+  box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.03);
+  left: 0;
+  top: 0;
+}
+
+.car-wash-time-content{
+  position: relative;
+  z-index: 2;
+}
+
+.car-wash-text{
+  width: 52%;
+}
+
+.car-wash-time__title{
+  font-family: 'songer',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.car-wash-time__el{
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+.car-wash-time__el:not(:last-child){
+  margin-bottom: 5px;
+}
+
+.car-wash-time__el__day{
+  width: 46px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+}
+
+.car-wash-time__el__time{
+  font-size: 14px;
+  line-height: 17px;
+  color: #757474;
+}
+
+.car-wash .title-block{
+  margin-bottom: 20px;
+}
+
+.car-wash-btn-mobile{
+  display: none;
+}
+
+
+@media (max-width: 1710px) {
+  .flag-list{
+    justify-content: space-between;
+  }
+
+  .flag-list__item a{
+    padding: 17px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .flag-list{
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .rest-places{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .rest-places__item--text{
+    width: 100%;
+  }
+
+  .rest-places__item--img{
+    width: 100%;
+  }
+
+  .parking-banner {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 69px 0 53px;
+    gap: 60px ;
+  }
+  .parking-title .title-block{
+    text-align: center;
+  }
+
+  .parking-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .parking-info{
+    flex-direction: column;
+  }
+
+  .atms-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .car-wash-btn-mobile{
+    display: inline-flex;
+  }
+
+  .car-wash-btn{
+    display: none;
+  }
+
+  .car-wash{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .car-wash-time:before{
+   content: none;
+  }
+
+  .car-wash-text{
+    width: 100%;
+  }
+
+  .car-wash-time{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.03);
+    margin: 0 -10px;
+  }
+
+  .hide-text-content{
+   max-height: 340px;
   }
 }
 

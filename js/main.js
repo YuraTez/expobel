@@ -341,3 +341,49 @@ if($('.big-slider-description__item').length > 0){
 if($(".company-content").length > 0){
     $(".company-content").css("min-height", $(".company-content-img").height() + "px")
 }
+
+$(".flag-list__item a").click(function () {
+    elementClick = $(this).attr("href")
+    destination = $(elementClick).offset().top;
+    $("html:not(:animated),body:not(:animated)").animate({scrollTop: destination - 130}, 100);
+    return false;
+});
+
+
+$(".hide-btn--map").on('click', function () {
+    const parent = this.parentElement;
+    parent.classList.toggle("active");
+
+    if (parent.classList.contains("active")) {
+        this.innerHTML = `Скрыть карту 
+                            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 5.99805L6 0.998047L1 5.99805" stroke="#333333"/>
+                            </svg>`;
+            $(this).parent().find(".map").fadeIn()
+    } else {
+        this.innerHTML = `Показать на карте
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 0.998047L6 5.99805L11 0.998047" stroke="#333333"/>
+                    </svg>`;
+        $(this).parent().find(".map").fadeOut()
+    }
+});
+
+$(".hide-btn--text").on('click', function () {
+    const parent = this.parentElement;
+    parent.classList.toggle("active");
+
+    if (parent.classList.contains("active")) {
+        this.innerHTML = `Свернуть
+                            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 5.99805L6 0.998047L1 5.99805" stroke="#333333"/>
+                            </svg>`;
+        $(this).parent().find(".map").fadeIn()
+    } else {
+        this.innerHTML = `Подробнее
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 0.998047L6 5.99805L11 0.998047" stroke="#333333"/>
+                    </svg>`;
+        $(this).parent().find(".map").fadeOut()
+    }
+});
