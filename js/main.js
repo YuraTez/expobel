@@ -429,15 +429,41 @@ $(".visit-table-mobile__item-header").on('click', function () {
 
 });
 
+const maskPhone = () => {
+    $("#phone").mask("+375 (99) 999-99-99");
+}
+
+maskPhone()
+
+const pipsSlider = document.querySelector('#range-slider');
+
+if(pipsSlider){
+    noUiSlider.create(pipsSlider, {
+        start: [0],
+        range: {
+            'min': 0,
+            'max': 10
+        },
+
+        step: 1,
+        pips: {
+            mode: 'steps',
+            density: 10
+        }
+    });
+}
+
+$("#feedbackFormBtn").on("click",(event)=>{
+    event.preventDefault();
+    $(".popUp-message").addClass("active");
+    $(".substrate").addClass("active");
+})
 
 
 
-
-
-
-
-
-
+document.addEventListener("click",()=>{
+    console.log(event.target)
+})
 
 
 
