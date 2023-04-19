@@ -459,23 +459,118 @@ $("#feedbackFormBtn").on("click",(event)=>{
     $(".substrate").addClass("active");
 })
 
+$('#renovation-slider').slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendDots: ".renovation-dots",
+    appendArrows: '.renovation-navigation',
+});
 
 
-document.addEventListener("click",()=>{
-    console.log(event.target)
+function addActiveDot(currentSlide){
+    let listDots = document.querySelectorAll('.renovation-dots li');
+    listDots.forEach((el)=>{
+        if(el.innerText == currentSlide + 1 ){
+            el.classList.add("slick-active")
+        }
+    })
+}
+
+addActiveDot(0)
+
+const renovationNewsBtn = document.querySelectorAll(".renovation-news__item-btn");
+const renovationSlideBtnList = document.querySelectorAll(".renovation-slide-more");
+const renovationSlideText = document.querySelectorAll(".renovation-slide-number-text");
+
+$('#renovation-slider').on('afterChange', function(event, slick, currentSlide){
+    $('.renovation-dots li').removeClass("slick-active")
+    let listDots = this.querySelectorAll('.renovation-dots li');
+
+    listDots.forEach((el)=>{
+        if(el.innerText == currentSlide + 1 ){
+            el.classList.add("slick-active")
+        }
+    })
+
+    renovationSlideText.forEach((el)=>{
+        el.classList.remove("active")
+    })
+
+    renovationSlideBtnList.forEach((el)=>{
+        let text = `Читать больше  <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.5L6 5.5L11 0.5" stroke="#333333"/>
+</svg>
+`
+        el.innerHTML = text
+    })
+});
+
+if(renovationNewsBtn){
+    renovationNewsBtn.forEach((el)=>{
+        el.addEventListener("click",()=>{
+            el.classList.toggle("active");
+            el.parentElement.querySelector(".renovation-news-text").classList.toggle("active");
+        })
+    })
+}
+
+$(".renovation-plans-btn").on("click",(event)=>{
+    let flag = $(".news-list-container").hasClass("active")
+  if (flag){
+      $(".news-list-container").removeClass("active");
+      let text = `Читать больше  <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.5L6 5.5L11 0.5" stroke="#333333"/>
+</svg>
+`
+      $(".renovation-plans-btn").html(text)
+  }else{
+      let text = `Свернуть <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 6.5L6 1.5L1 6.5" stroke="#333333"/>
+</svg>
+`
+      $(".news-list-container").addClass("active");
+      $(".renovation-plans-btn").html(text)
+  }
+
 })
 
+if(window.innerWidth < 1200){
+    if(renovationSlideBtnList){
+        renovationSlideText.forEach((el=>{
+           if(el.scrollHeight <= el.clientHeight){
+               el.parentElement.querySelector(".renovation-slide-more").classList.add("d-none")
+           }
+        }))
+        renovationSlideBtnList.forEach((el)=>{
+            el.addEventListener("click", ()=>{
+                let flag = el.parentElement.querySelector(".renovation-slide-number-text").classList.contains("active");
+                let textContainer = el.parentElement.querySelector(".renovation-slide-number-text");
+                if (flag){
+                    textContainer.classList.remove("active");
+                    let text = `Читать больше  <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.5L6 5.5L11 0.5" stroke="#333333"/>
+</svg>
+`
+                    el.innerHTML = text
+                }else{
+                    let text = `Свернуть <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 6.5L6 1.5L1 6.5" stroke="#333333"/>
+</svg>
+`
+                    textContainer.classList.add("active");
+                    el.innerHTML = text
+                }
+
+            })
+        })
+    }
+}
 
 
+if(window.innerWidth < 500){
 
-
-
-
-
-
-
-
-
-
-
+    $(".renovation-instagram").css({'backgroundImage' : "url(" + $(".renovation-instagram").attr("data-mobile") + ")"});
+}
 
