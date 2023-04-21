@@ -189,32 +189,64 @@ $('.news-promotions-slider').slick({
 
 Fancybox.bind("[data-fancybox]", {});
 
-$('#gallery-slider').slick({
-    dots: true,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    appendDots: ".gallery-dots",
-    appendArrows: '.gallery-navigation',
-    prevArrow: '.gallery-prevArrow',
-    nextArrow: '.gallery-nextArrow',
-    responsive: [
-        {
-            breakpoint: 900,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
+const gallerySliderBig = document.querySelector(".gallery-slider--big");
+
+if(!gallerySliderBig){
+    $('#gallery-slider').slick({
+        dots: true,
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        appendDots: ".gallery-dots",
+        appendArrows: '.gallery-navigation',
+        prevArrow: '.gallery-prevArrow',
+        nextArrow: '.gallery-nextArrow',
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToScroll: 1,
+                    slidesToShow: 1
+                }
             }
-        },
-        {
-            breakpoint: 500,
-            settings: {
-                slidesToScroll: 1,
-                slidesToShow: 1
+        ]
+    });
+}else{
+    $('#gallery-slider').slick({
+        dots: true,
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        appendDots: ".gallery-dots",
+        appendArrows: '.gallery-navigation',
+        prevArrow: '.gallery-prevArrow',
+        nextArrow: '.gallery-nextArrow',
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToScroll: 1,
+                    slidesToShow: 1
+                }
             }
-        }
-    ]
-});
+        ]
+    });
+}
+
 
 
 const heightGallerySlider = 276 / 276;
