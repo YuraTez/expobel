@@ -463,6 +463,7 @@ $(".visit-table-mobile__item-header").on('click', function () {
 
 const maskPhone = () => {
     $("#phone").mask("+375 (99) 999-99-99");
+    $("#rent-phone").mask("+375 (99) 999-99-99");
 }
 
 maskPhone()
