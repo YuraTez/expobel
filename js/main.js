@@ -253,38 +253,49 @@ const heightGallerySlider = 276 / 276;
 const heightLogoCard = 432 / 243;
 const heightBannerCard = 840 / 525;
 const heightImgBanner = 1255/461
-
+const heightMap = 1700/1215
 function resizeImg(item , heightImg){
     $(item).height($(item).width() / heightImg);
 }
 
+
+resizeImg(".map-content", heightMap);
 resizeImg(".gallery-slider__item", heightGallerySlider);
 resizeImg(".shop-card-logo__img", heightLogoCard);
 resizeImg(".shop-card-sticky-elem", heightBannerCard);
 resizeImg(".company-content-img", heightImgBanner);
 
 window.onresize = ()=>{
+    resizeImg(".map-content", heightMap);
     resizeImg(".gallery-slider__item", heightGallerySlider);
     resizeImg(".shop-card-logo__img", heightLogoCard);
     resizeImg(".shop-card-sticky-elem", heightBannerCard);
     resizeImg(".company-content-img", heightImgBanner);
 }
 
-let x = 1, point;
+let x = 100, point;
 
 function zoomPlus(){
-    x+=0.1;
+   /* x+=0.1;
     point="scale("+x+","+x+")";
-    $('.map-content__img').css("transform",point);
+    $('.map-content__img').css("transform",point);*/
    /* if(x<1){setTimeout(zoomPlus,1)};*/
+
+    x+=10;
+    point = x + "%";
+    $('.map-content__img').css("width",point);
+
     return x
 }
 
 function zoomMinus(){
-    x-=0.1;
-    point="scale("+x+","+x+")";
+    x-=10;
+    /*point="scale("+x+","+x+")";
     $('.map-content__img').css("transform",point);
-    if(x>2){setTimeout(zoomMinus,10)};
+    if(x>2){setTimeout(zoomMinus,10)};*/
+
+    point = x + "%";
+    $('.map-content__img').css("width",point);
     return x
 }
 
@@ -461,13 +472,6 @@ $(".visit-table-mobile__item-header").on('click', function () {
 
 });
 
-const maskPhone = () => {
-    $("#phone").mask("+375 (99) 999-99-99");
-    $("#rent-phone").mask("+375 (99) 999-99-99");
-}
-
-maskPhone()
-
 const pipsSlider = document.querySelector('#range-slider');
 
 if(pipsSlider){
@@ -607,3 +611,19 @@ if(window.innerWidth < 500){
     $(".renovation-instagram").css({'backgroundImage' : "url(" + $(".renovation-instagram").attr("data-mobile") + ")"});
 }
 
+$('a[href^="#"').on("click", function (event) {
+    let href = $(this).attr("href");
+    $("html, body").animate({
+        scrollTop: $(href).offset().top - 125
+    }, {
+        duration: 400,
+    });
+    return false;
+});
+
+const maskPhone = () => {
+    $("#phone").mask("+375 (99) 999-99-99");
+    $("#rent-phone").mask("+375 (99) 999-99-99");
+}
+
+maskPhone()

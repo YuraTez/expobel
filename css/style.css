@@ -1840,12 +1840,14 @@ body {
   .burger {
     position: relative;
     width: 28px;
+    height: 20px;
+    z-index: 10;
   }
 
   .burger:before {
     position: absolute;
     content: "";
-    top: -4px;
+    top: 0px;
     left: 0;
     height: 2px;
     width: 100%;
@@ -1856,7 +1858,7 @@ body {
   .burger:after {
     position: absolute;
     content: "";
-    bottom: -3px;
+    bottom: 9px;
     left: 0;
     height: 2px;
     width: 100%;
@@ -1866,12 +1868,12 @@ body {
 
   .burger.active:before {
     transform: rotate(45deg);
-    top: -3px;
+    top: 7px;
   }
 
   .burger.active:after {
     transform: rotate(-45deg);
-    bottom: 0;
+    bottom: 11px;
   }
 
   .fast-search {
@@ -2850,7 +2852,7 @@ body {
 }
 
 .bread-crumbs-list__item:hover a {
-  color: #717171;
+  color: #030303;
 }
 
 .bread-crumbs-list__item:not(:first-child) {
@@ -3156,9 +3158,11 @@ body {
 .map-content {
   width: 100%;
   overflow: scroll;
+  background: white;
 }
 
 .map-content img {
+  display: block;
   width: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -3232,7 +3236,7 @@ body {
 .label-checkbox .user-agreement:before {
   position: absolute;
   left: 0;
-  border: 1px solid white;
+  border: 1px solid #f3f3f3;
   box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.06);
 }
 
@@ -3742,7 +3746,7 @@ input[type="checkbox"] {
   background: #fff;
 }
 
-.entertainment-item-content__place__icon:hover {
+.entertainment-item-content__place:hover .entertainment-item-content__place__icon {
   background: #fd0;
 }
 
@@ -3893,6 +3897,11 @@ input[type="checkbox"] {
 
 .underline {
   text-decoration: underline;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.01em;
+  color: #333;
 }
 
 .title_h2 {
@@ -3976,6 +3985,10 @@ input[type="checkbox"] {
   letter-spacing: -0.01em;
   color: #333;
   margin: 5px 0;
+}
+
+.news-list__item a{
+  color: #333;
 }
 
 .news-list__item:before {
@@ -4176,7 +4189,6 @@ ul .news-list__item:before {
 }
 
 .questions-list__item:last-child .questions-item-header.active + .questions-item-body {
-  display: block;
   border-radius: 15px
 }
 
@@ -6885,6 +6897,7 @@ ul .news-list__item:before {
 
 .form-group-row{
   display: flex;
+  align-items: flex-start;
   gap: 20px;
   margin-bottom: 10px;
 }
@@ -6922,6 +6935,7 @@ ul .news-list__item:before {
 }
 
 .file-text{
+  position: relative;
   display: block;
   width: 100%;
   background: #EFEFEF;
@@ -6933,6 +6947,29 @@ ul .news-list__item:before {
   padding: 14px 30px;
   border: 1px solid #EFEFEF;
   cursor: pointer;
+}
+
+.file-text:after{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "Выбрать";
+  height: 100%;
+  width: 111px;
+  top: 0;
+  right: 0;
+  background: #FFDD00;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #333333;
+  transition: 0.3s;
+}
+
+.file-text:hover:after{
+  background: #ffea61;
 }
 
 .file-text:hover{
@@ -6953,7 +6990,7 @@ ul .news-list__item:before {
   margin-top: 40px;
 }
 
-.feedback-form .label-checkbox > input + span::before{
+.rent-form-block .label-checkbox > input + span::before{
   background-color: white;
 }
 
@@ -7095,6 +7132,104 @@ ul .news-list__item:before {
     padding-bottom: 40px;
   }
 
+}
+
+@media (min-width: 1500px) {
+  .header-location{
+    margin-left: 75px;
+  }
+
+  .header-location__item:not(:last-child){
+    margin-right: 70px  ;
+  }
+}
+
+.social-link__item svg,
+.social-link__item svg stop{
+  transition: 0.3s;
+}
+
+
+.social-link__item:not(:hover) .svg-inst stop{
+  stop-color: #757474;
+}
+
+.social-link__item .svg-fb,
+.social-link__item .svg-vk,
+.social-link__item .svg-tg,
+.social-link__item .svg-wu,
+.social-link__item .svg-vg,
+.social-link__item .svg-you-t,
+.social-link__item .svg-tin,
+.social-link__item .svg-ok{
+  fill: #757474;
+}
+
+.social-link__item:hover .svg-fb{
+  fill: #3157A0;
+}
+
+.social-link__item:hover .svg-vk{
+  fill: #058FDD;
+}
+
+.social-link__item:hover .svg-tg{
+  fill: #4ABCFC;
+}
+
+.social-link__item:hover .svg-wu{
+  fill: #54E051;
+}
+
+.social-link__item:hover .svg-vg{
+  fill: #835CB6;
+}
+
+.social-link__item:hover .svg-you-t{
+  fill: #E02C2C;
+}
+
+.social-link__item:hover .svg-tin{
+  fill: #000000;
+}
+
+.social-link__item:hover .svg-ok{
+  fill: #FB7C20;
+}
+
+.card-info__item .underline{
+  text-decoration-line: underline;
+}
+
+.grid-shops__items-img img{
+  display: block;
+  max-width: 100%;
+}
+
+.error-block{
+  display: none;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #E91A1A;
+  margin-top: 4px;
+}
+
+.form-group.error .error-block{
+  display: block;
+}
+
+.form-group.error input,
+.form-group.error textarea{
+  border-color: #E91A1A;
+  background: white url("../assets/img/error.svg") no-repeat 96% 50%;
+}
+
+@media (max-width: 340px) {
+  .file-text:after{
+    width: 80px;
+  }
 }
 
 
