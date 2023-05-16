@@ -3162,9 +3162,12 @@ body {
 }
 
 .map-content img {
-  display: block;
   width: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.map-content__img.active{
+  display: block;
 }
 
 .popUp {
@@ -4311,7 +4314,7 @@ ul .news-list__item:before {
 }
 
 .objects-territory .title-section {
-  max-width: 691px;
+  max-width: 710px;
   text-align: center;
   margin: 0 auto 30px;
 }
@@ -7232,6 +7235,9 @@ ul .news-list__item:before {
   }
 }
 
+.mb-60{
+  margin-bottom: 60px;
+}
 
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'songer',sans-serif;
