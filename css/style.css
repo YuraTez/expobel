@@ -7242,3 +7242,8 @@ ul .news-list__item:before {
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'songer',sans-serif;
 */
+
+.filter-btn.active{
+  background: white url(../assets/img/arrow-btn.svg) no-repeat 96% 7px;
+  outline: 1px solid #fd0;
+}

@@ -135,6 +135,9 @@ $('.nav-list__item--submenu > span').on('click', function (event) {
     }
 });
 
+$(".filter-btn").on("click",function (){
+    this.classList.toggle("active");
+})
 
 $('select').styler();
 
@@ -604,7 +607,6 @@ if(window.innerWidth < 1200){
         })
     }
 }
-
 
 if(window.innerWidth < 500){
 
