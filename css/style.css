@@ -22,10 +22,6 @@ font-family: 'songer',sans-serif;
   scroll-behavior: smooth;
 }
 
-*::selection {
-  background: none;
-}
-
 body {
   background: #f8f8f8;
 }
@@ -3241,11 +3237,6 @@ body {
   left: 0;
   border: 1px solid #f3f3f3;
   box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.06);
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  display: none;
 }
 
 .form-group__item label {
