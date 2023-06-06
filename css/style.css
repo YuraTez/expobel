@@ -3478,7 +3478,12 @@ body {
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
-  color: #757474
+  color: #757474;
+}
+
+.pagination-arrow-left a,
+.pagination-arrow-right a{
+  display: flex;
 }
 
 .pagination-list__item {
@@ -5127,8 +5132,8 @@ ul .news-list__item:before {
   cursor: pointer;
 }
 
-.visit-table-list__item.active,
-.visit-table-list__item:hover {
+.visit-table-list__item.active:not(.no-active),
+.visit-table-list__item:not(.no-active):hover {
   background: #fd0;
 }
 

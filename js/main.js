@@ -435,7 +435,7 @@ $(".hide-btn--text").on('click', function () {
 });
 
 
-const listPlaces = document.querySelectorAll(".visit-table-list__item")
+const listPlaces = document.querySelectorAll(".visit-table-list__item[data-list-product]");
 const listPlacesContent = document.querySelectorAll(".visit-table-day");
 
 if(listPlaces){
